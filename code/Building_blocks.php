@@ -103,8 +103,13 @@ class Building_blocks extends DataExtension
     }
 
     public function getBackgroundImage()
-    {
-        return Image::get()->byID(Session::get('BackgroundImage'));
+        {
+        if (Session::get('BackgroundImage') != null) {
+            return Image::get()->byID(Session::get('BackgroundImage'));
+        }else{
+            $siteConfig = SiteConfig::current_site_config();
+            return $siteConfig->BackgroundImage();
+        }
     }
 
 }

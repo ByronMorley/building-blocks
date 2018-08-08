@@ -8,3 +8,6 @@ Page:
 
 SSViewer:
   rewrite_hash_links: false
+SiteConfig:
+  extensions:
+    - BuildingBlocksSettings
