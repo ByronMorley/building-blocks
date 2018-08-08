@@ -1,6 +1,8 @@
 <div class="background-image">
     <% if $BackgroundImage %>
         <img src="$BackgroundImage.Filename" class="bottom"/>
+    <% else %>
+        <img src="$getBackgroundImage.Filename" class="bottom"/>
     <% end_if %>
     <%if $getBackgroundImage %>
         <img src="$getBackgroundImage.Filename" class="top"/>
