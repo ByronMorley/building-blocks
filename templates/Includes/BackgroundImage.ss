@@ -1,15 +1,13 @@
 <div class="background-image">
-    <% if $BackgroundImage %>
-        <img src="$BackgroundImage.Filename" class="bottom"/>
+    <% if $SingleImage %>
+        <img src="$SingleImage.Filename" class="bottom"/>
     <% else %>
-        <% if $FadeToBlank %><% else %>
-            <img src="$getBackgroundImage.Filename" class="bottom"/>
-        <% end_if %>
+        <img src="$getBackgroundImage.Filename" class="bottom"/>
     <% end_if %>
     <%if $getBackgroundImage %>
         <img src="$getBackgroundImage.Filename" class="top"/>
     <% end_if %>
-    <% if $BackgroundImage %>
-        $setBackgroundImage($BackgroundImage.ID)
+    <% if $SingleImage %>
+        $setBackgroundImage($SingleImage.ID)
     <% end_if %>
 </div>

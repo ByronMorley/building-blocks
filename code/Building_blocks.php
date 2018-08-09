@@ -8,7 +8,7 @@ class Building_blocks extends DataExtension
     private static $db = array();
 
     private static $has_one = array(
-        'BackgroundImage' => 'Image'
+        'SingleImage' => 'Image'
     );
 
     private static $has_many = array(
@@ -86,14 +86,23 @@ class Building_blocks extends DataExtension
 
 
         /*-- Background image --*/
-
-        $uploadField = UploadField::create('BackgroundImage');
+/*
+        $uploadField = UploadField ::create('BackgroundImage');
         $uploadField->setFolderName('BackgroundImages');
         $uploadField->getValidator()->setAllowedExtensions(array(
-            'png', 'gif', 'jpeg', 'jpg'
+            'png','gif','jpeg','jpg'
         ));
 
-        $fields->addFieldToTab("Root.Images", $uploadField);
+        $fields->addFieldToTab("Root.Main", $uploadField);
+        */
+
+        $fields->addFieldToTab(
+            'Root.Images',
+            $uploadField = new UploadField(
+                $name = 'SingleImage',
+                $title = 'Background Image'
+            )
+        );
 
     }
 
@@ -103,12 +112,11 @@ class Building_blocks extends DataExtension
     }
 
     public function getBackgroundImage()
-        {
+    {
         if (Session::get('BackgroundImage') != null) {
             return Image::get()->byID(Session::get('BackgroundImage'));
-        }else{
-            $siteConfig = SiteConfig::current_site_config();
-            return $siteConfig->BackgroundImage();
+        } else {
+            return Image::get()->byID(66);
         }
     }
 
