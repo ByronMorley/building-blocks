@@ -38,6 +38,27 @@ function checkNavTabs($block) {
     });
 });
 
+var printAll = function (evt, id) {
+
+    evt.preventDefault();
+    var data = {
+        id:id,
+        url:window.location.href
+    };
+    var url = window.location.href + "/printAll" ;
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: function (data) {
+            $('.tabloid_print_all').first().clone()[0].click();
+            console.log('done');
+        }
+    });
+};
+
+
 var convert_to_pdf = function () {
     var $content_container = get_content();
     clean_html($content_container);

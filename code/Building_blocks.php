@@ -3,8 +3,6 @@
 class Building_blocks extends DataExtension
 {
 
-	public static $allowed_actions = array();
-
 	private static $db = array();
 
 	private static $has_one = array(
@@ -118,6 +116,18 @@ class Building_blocks extends DataExtension
 		} else {
 			return Image::get()->byID(56);
 		}
+	}
+
+	public function printAll($data)
+	{
+		$resources = Page::get()->filter(array('ParentID' => $data['id'], 'ClassName' => 'BlockHolder'));
+		$pages = Page::get()->filter(array('ParentID' => $resources->first()->ID, 'ClassName' => 'BlockPage'));
+
+		$pageArrayData = new ArrayData(array(
+			'Pages' => $pages
+		));
+
+		$this->createPDF($pageArrayData->renderWith('Print/Page'));
 	}
 
 	public function createPDF($data)
