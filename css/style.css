@@ -516,6 +516,11 @@ img.right {
 .pagination.mx-right {
   margin-left: auto!important;
 }
+.page-item.disabled a.page-link {
+  background-color: #000000;
+  color: #9D9D9D;
+  border-color: transparent;
+}
 
 /*--------------------------- CONFIG.LESS --------------------------------*/
 /*  1170px  */

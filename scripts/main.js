@@ -3,9 +3,23 @@ $(document).ready(function () {
         checkNavTabs($(this));
     });
 
-    $('.nav-link').on('click', function(){
+    $('.nav-link').on('click', function () {
         localStorage.setItem('tabs', $(this).parent().index());
     });
+
+    /*
+    $('.pagination').twbsPagination({
+        totalPages: 18,
+        visiblePages: 5,
+        first: '&laquo;',
+        prev: '<',
+        next: '>',
+        last: '&raquo;',
+        anchorClass: 'page-link',
+        href: true,
+    });
+    */
+
 });
 
 function checkNavTabs($block) {
