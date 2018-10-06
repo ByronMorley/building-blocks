@@ -1,6 +1,6 @@
 <div class="d-flex block pagination-block">
 	<ul>
-		<li class="page-item"><a class="page-link" href="$Parent.Parent.Link">Back to Menu</a></li>
+		<li class="page-item"><a class="page-link" href="$Parent.Parent.Link"><%t Menu.BACK_TO_MENU %></a></li>
 	</ul>
 	<ul class="pagination mx-right">
         <% if $Parent.Children %>

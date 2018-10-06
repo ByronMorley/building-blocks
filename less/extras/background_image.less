@@ -1,3 +1,5 @@
+
+
 .background-image {
 
   img{
@@ -15,16 +17,16 @@
     z-index:-1;
 
     &.top {
-      -webkit-animation: fadeOut 1s both ease-in;
-      -moz-animation: fadeOut 1s both ease-in;
-      animation: fadeOut 1s both ease-in;
+      -webkit-animation: fadeOutHalf 1s both ease-in;
+      -moz-animation: fadeOutHalf 1s both ease-in;
+      animation: fadeOutHalf 1s both ease-in;
     }
     &.fade-in {
-      -webkit-animation: fadeIn 1s both ease-in;
-      -moz-animation: fadeIn 1s both ease-in;
-      animation: fadeIn 1s both ease-in;
+      -webkit-animation: fadeInHalf 1s both ease-in;
+      -moz-animation: fadeInHalf 1s both ease-in;
+      animation: fadeInHalf 1s both ease-in;
     }
-
+    opacity:0.5;
   }
 
   @media screen and (max-width: 1024px) { /* Specific to this particular image */
@@ -34,3 +36,4 @@
     }
   }
 }
+
