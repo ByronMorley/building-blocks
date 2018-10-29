@@ -28,7 +28,6 @@ class Building_blocks extends DataExtension
 		Requirements::javascript('components/jquery/jquery.min.js');
 		Requirements::javascript('twitter/bootstrap/dist/js/bootstrap.min.js');
 		Requirements::javascript('twitter\twbs-pagination\jquery.twbsPagination.js');
-
 		Requirements::javascript(BUILDING_BLOCKS_DIR . '/js/main.min.js');
 
 	}
@@ -68,6 +67,7 @@ class Building_blocks extends DataExtension
 				'SectionLogoBlock' => SectionLogoBlock::get_section_type(),
 				'SectionInputBlock' => SectionInputBlock::get_section_type(),
 				'SectionWordBankBlock' => SectionWordBankBlock::get_section_type(),
+				'SectionAudioBlock' => SectionAudioBlock::get_section_type(),
 			)
 		);
 

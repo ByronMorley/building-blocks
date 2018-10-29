@@ -1,23 +1,64 @@
 @import "../_core/_config.less";
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
 /*-----------------------------------------
             AUDIO.LESS
 -----------------------------------------*/
 
-@bottom-section-height: 500px;
-@audio-player_color: @alpha-color;
+@bottom-section-height: 400px;
+@audio-player_color: #659FA8;
 @track-line-color: #069;
+@icon-color:#fff;
+@border-color:#659FA8;
+@question-panel-color:#069;
+@text-color:#000;
 
 .audio-block {
 
-    .main-wrapper {
-        overflow: hidden;
+    margin-bottom:20px;
 
+    @media @SM, @XS, @XXS{
+        margin-bottom:10px;
+    }
+
+    .main-wrapper {
+
+        border-color: @border-color !important;
+        overflow: hidden;
+        @media @SM, @XS, @XXS{
+            padding:10px;
+        }
         .question-wrapper {
+            background-color: @question-panel-color;
+            padding:20px;
+
+            @media @SM, @XS, @XXS{
+                padding:10px;
+            }
+
+            .glyphicon {
+                text-align: center;
+                width:100%;
+                height:auto;
+
+
+                @media @SM, @XS, @XXS {
+                    font-size:30px;
+                    line-height:30px;
+                }
+                @media @XXS {
+                    font-size:18px;
+                    line-height:18px;
+                }
+                &:hover {
+                    color:#659FA8;
+                }
+            }
             .question {
                 *{
                     text-align: center;
                     color: #fff;
+                    margin:0;
                 }
             }
         }
@@ -25,7 +66,10 @@
         .bottom-wrapper {
             overflow: hidden;
             position: relative;
-            height: @bottom-section-height;
+            height:auto;
+            &.avatar {
+                height: @bottom-section-height;
+            }
 
 
             @media @SM, @XS, @XXS {
@@ -35,7 +79,7 @@
             .avatar {
                 height: 100%;
                 img {
-                    height: 100%;
+                    height: 350px;
                     width: auto;
                 }
 
@@ -46,46 +90,93 @@
                         width: 100%;
                     }
                 }
+                &.right {
+                    float:right;
+                }
             }
             .audio-section {
                 position: relative;
                 height: 100%;
+                @media @SM, @XS, @XXS {
+                    position:initial !important;
+                }
             }
         }
+    }
+
+    .glyphicon-step-backward, .glyphicon-step-forward {
+        display:none;
     }
 
     .volume-meter-wrapper {
         position: relative;
     }
+
+    .glyphicon {
+        color:@icon-color;
+        width: 100%;
+        line-height: 60px;
+        font-size: 60px;
+        cursor: pointer;
+        transition: ease all 0.5s;
+
+        @media @XXS {
+            width: 40px;
+            line-height: 40px;
+            font-size: 40px;
+        }
+        &:hover {
+            //   color:rgba(135,0,0,1);
+        }
+    }
 }
 
+.avatar {
+    .audio-player {
+        position: absolute;
+    }
+}
 .audio-player {
+    position:relative;
 
-    position: absolute;
     height: 90px;
     width: 100%;
     bottom: 0;
+
+    .col-xs-2 {
+        width:16%;
+        float:left;
+    }
+    .col-xs-8 {
+        width:66.97%;
+        float:left;
+    }
+
+    &.solo {
+        position: relative;
+        margin-bottom:20px;
+    }
 
     @media @XXS {
         height: 60px;
     }
 
-    .audio-pane {
+    .audio-panel {
         background-color: @audio-player_color;
         padding: 10px;
         position: relative;
         overflow: visible;
-        height:100%;
-
+        height: 100%;
+        text-align: center;
         .controls {
-
+            position: relative;
             height: 100%;
 
             @media @XXS {
-                padding:0 0px;
+                padding: 0 0px;
 
                 &.middle {
-                    padding:0 10px;
+                    padding: 0 10px;
                 }
             }
 
@@ -97,11 +188,12 @@
 
             }
             .audio-block-track {
-                margin-top: 10px;
-                height: 10px;
+                top: 50%;
+                margin-top: -10px;
+                left: 0;
+                height: 20px;
                 background-color: #fff;
                 width: 100%;
-
 
             }
         }
@@ -127,7 +219,7 @@
             position: absolute;
             width: 60px;
             height: 100px;
-            background-color: @alpha-color;
+            background-color: @audio-player_color;
             padding: 20px 10px 5px 10px;
             display: none;
             cursor: pointer;
@@ -144,24 +236,6 @@
             }
         }
 
-        .glyphicon {
-
-            width: 100%;
-            line-height: 60px;
-            font-size: 60px;
-            cursor: pointer;
-            transition: ease all 0.5s;
-
-            @media @XXS {
-                width: 40px;
-                line-height: 40px;
-                font-size: 40px;
-            }
-
-            &:hover {
-                //   color:rgba(135,0,0,1);
-            }
-        }
     }
 }
 
@@ -189,4 +263,16 @@
             width: 0;
         }
     }
+}
+
+.audio-text {
+    p{
+        color:@text-color !important;
+    }
+    display:none;
+
+    &.current {
+        display:block;
+    }
+
 }

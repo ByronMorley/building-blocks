@@ -1,69 +1,50 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <div class="block audio-block">
     <% if $ShowTitle %>
-        <h2>$Title</h2>
+		<h2>$Title</h2>
     <% end_if %>
-    <div class="main-wrapper pane wrapper rounded">
-        <div class="pane question-wrapper">
-            <div class="question">$Text</div>
-        </div>
-        <div class="bottom-wrapper">
-            <div class="avatar col-md-6 col-xs-12">
-                $Avatar
-            </div>
-            <div class="audio-section nopadding col-md-6 col-xs-12">
-                <div class="audio-player">
-                    <audio>
-                        <source src="$Audio.URL" type="audio/mpeg"/>
-                        Your browser does not support the audio element.
-                    </audio>
+	<div class="audio-section nopadding">
+		<div class="audio-player solo">
+			<audio>
+				<source src="$Audio.URL" type="audio/mpeg"/>
+				Your browser does not support the audio element.
+			</audio>
 
-                    <div class="audio-pane pane rounded no-margin">
-                        <!-- PLAY BUTTON -->
+			<div class="audio-panel panel no-margin">
+				<!-- PLAY BUTTON -->
 
-                        <div class="controls col-xs-2 audio-block-play" action="play_pause">
-                            <span class="glyphicon glyphicon-play"></span>
-                        </div>
+				<div class="controls col-xs-2 audio-block-play" action="play_pause">
+					<span class="glyphicon glyphicon-play"></span>
+				</div>
 
-                        <!-- TRACK AND CONTROLS -->
+				<!-- TRACK AND CONTROLS -->
 
-                        <div class="controls middle col-xs-8">
+				<div class="controls middle col-xs-8">
+					<div class="track horizontal audio-block-track">
+						<div class="track-line audio-block-track-line"></div>
+					</div>
+				</div>
 
-                            <div class="nav-controls">
+				<!-- VOLUME SECTION -->
 
-
-                            </div>
-                            <div class="track horizontal audio-block-track">
-                                <div class="track-line audio-block-track-line"></div>
-                            </div>
-                        </div>
-
-                        <!-- VOLUME SECTION -->
-
-                        <div class="controls audio-block-volume-button col-xs-2" action="volume">
-                            <span class="glyphicon glyphicon-volume-up"></span>
-                        </div>
-                        <div class="audio-block-volume-hover-pad col-xs-2">
-                        </div>
+				<div class="controls audio-block-volume-button col-xs-2" action="volume">
+					<span class="glyphicon glyphicon-volume-up"></span>
+				</div>
+				<div class="audio-block-volume-hover-pad col-xs-2">
+				</div>
 
 
-                        <div class="audio-block-volume-meter pane rounded top">
-                            <div class="track vertical audio-block-volume-track">
-                                <div class="track-line audio-block-volume-track-line"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
+				<div class="audio-block-volume-meter panel rounded top">
+					<div class="track vertical audio-block-volume-track">
+						<div class="track-line audio-block-volume-track-line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
-    $(document).ready(function(){
-       $('.audio-player').hades_audio_player();
-    });
+	$(document).ready(function(){
+		$('.audio-block').hades_audio_player({solo:true});
+	});
 </script>
