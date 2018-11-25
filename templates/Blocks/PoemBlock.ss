@@ -1,11 +1,8 @@
-<div class="block poem-block">
+<div class="block poem-block" id="block-$ID">
     <% if $Content %>
 		<div class="pane rounded content">
 
 			<h3>$PageTitle - <span>$Author</span></h3>
-
-            $Content
-
             <% if $Audio %>
 				<div class="block audio-block">
                     <% if $ShowTitle %>
@@ -58,6 +55,9 @@
 				</script>
 
             <% end_if %>
+            $Content
+
+
 		</div>
     <% end_if %>
 </div>

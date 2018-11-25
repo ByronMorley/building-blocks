@@ -105,6 +105,51 @@ class Building_blocks extends DataExtension
 
 	}
 
+	public function sectionGroups()
+	{
+		$groups = array();
+
+		foreach ($this->owner->Sections()->exclude('ClassName', array('SectionActivityBlock', 'SectionLinkBlock')) as $index => $section) {
+			$sectionArray = new ArrayData(array(
+				'Sections' => $section,
+				'ID' => $section->ID,
+				'Title' => $section->Title,
+			));
+			array_push($groups, $sectionArray);
+		}
+
+		array_push($groups, $this->generateSectionGroup('SectionActivityBlock'));
+		array_push($groups, $this->generateSectionGroup('SectionLinkBlock'));
+
+		return new ArrayList($groups);
+	}
+
+	private function generateSectionGroup($sectionType)
+	{
+		$sections = array();
+		$ID = 0;
+		$title = $sectionType;
+
+		$sectionArray = new ArrayData(array());
+		$sectionsFiltered = $this->owner->Sections()->filter('ClassName', $sectionType);
+
+		if (count($sectionsFiltered) > 0) {
+			foreach ($sectionsFiltered as $index => $section) {
+				if ($index == 0) {
+					$ID = $section->ID;
+					$title = $section->Title;
+				}
+				array_push($sections, $section);
+			}
+			$sectionArray = new ArrayData(array(
+				'Sections' => new ArrayList($sections),
+				'ID' => $ID,
+				'Title' => $title,
+			));
+		}
+		return $sectionArray;
+	}
+
 	public function setBackgroundImage($id)
 	{
 		Session::set('BackgroundImage', $id);

@@ -6,9 +6,11 @@ class SectionYouTubeVideoBlock extends Section
 	private static $db = array(
 		'src' => 'VarChar(100)',
 		'embedCode' => 'Varchar(20)',
-		'caption' => 'VarChar(100)',
+		'caption' => 'VarChar(400)',
 		'width' => 'VarChar(30)',
-		'border' => 'Boolean'
+		'border' => 'Boolean',
+		'TextAbove' => 'HTMLText',
+		'TextBelow' => 'HTMLText',
 	);
 
 	public function getCMSFields()
@@ -37,6 +39,16 @@ class SectionYouTubeVideoBlock extends Section
 		);
 
 		$fields->removeByName('link');
+
+
+		$textFields = array(
+			HtmlEditorField::create('TextAbove', 'TextAbove'),
+			HtmlEditorField::create('TextBelow', 'TextBelow')
+		);
+
+		$fields->addFieldsToTab('Root.Text', $textFields);
+
+
 
 		$fields->addFieldsToTab("Root.Main", $fieldList);
 
