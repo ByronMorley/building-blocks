@@ -461,7 +461,12 @@
   width: 100%;
   clear: both;
 }
+.image-wrapper {
+  display: block;
+  position: relative;
+}
 img {
+  display: block;
   width: 100%;
   height: auto;
   border: none;
@@ -508,6 +513,23 @@ img.right {
   font-style: italic;
   font-size: 12px;
   text-align: center;
+}
+.hi-res-download {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  right: 0;
+  transition: background-color ease-in 0.5s;
+}
+.hi-res-download:hover {
+  background-color: #fff;
+}
+.hi-res-download:hover a.hi-res-download-link {
+  color: #000;
+}
+.hi-res-download a.hi-res-download-link {
+  color: #fff;
+  padding: 10px;
 }
 
 /*--------------------------- CONFIG.LESS --------------------------------*/
